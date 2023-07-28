@@ -1,7 +1,9 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function() {
-
     let form = document.querySelector('form');
+    let list = document.getElementById('faultyItems');
+    list.style.visibility = 'hidden';
+
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         let pilotNameEntered = document.querySelector('input[name=pilotName]');
@@ -9,13 +11,12 @@ window.addEventListener("load", function() {
         let fuelLevelEntered = document.querySelector('input[name=fuelLevel]');
         let cargoMassEntered = document.querySelector('input[name=cargoMass');
 
+
         if (pilotNameEntered.value === "" || copilotNameEntered.value === "" || fuelLevelEntered.value === "" || cargoMassEntered.value === "") {
             alert("ALL FIELDS ARE REQUIRED");
         }
         else {
-            let faultyItems = document.querySelector('faultyItems');
-
-            formSubmission(document, faultyItems, pilotNameEntered.value, copilotNameEntered.value, fuelLevelEntered.value, cargoMassEntered.value);
+            formSubmission(document, list, pilotNameEntered.value, copilotNameEntered.value, fuelLevelEntered.value, cargoMassEntered.value);
         }
     });
 
