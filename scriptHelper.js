@@ -148,9 +148,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
 }
 
 async function myFetch() {
-    let planetsReturned;
-
-    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+    const url = new URL("https://handlers.education.launchcode.org/static/planets.json");
+    let planetsReturned = await fetch(url).then( function(response) {
     return response.json();    
     });
 
